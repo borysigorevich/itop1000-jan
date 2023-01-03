@@ -38,7 +38,7 @@ const liBox = (isOpen: boolean) => `${isOpen ? 'h-[157px]' : 'h-0'} transition-a
 const li = "hover:bg-[#4246a8] transition cursor-pointer p-3 border-r-[1px] border-l-[1px] last:border-b-[1px] last:rounded-bl last:rounded-br"
 const iconBox = "w-10 h-10 grid place-content-center rounded-full bg-[#383ec8] cursor-pointer"
 const icon = "text-3xl text-[#fff5]"
-const input = "rounded focus:outline-none text-[#453dad] h-[52px] px-3 max-w-[275px]"
+const input = "rounded focus:outline-none text-[#453dad] h-[52px] px-3 w-[275px]"
 //***
 
 export const Exchange = () => {
