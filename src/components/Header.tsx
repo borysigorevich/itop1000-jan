@@ -13,7 +13,7 @@ export const Header = () => {
 
     return (
         <header className='mb-10'>
-            <nav className='flex justify-center gap-20 py-4 max-w-3xl mx-auto border-b-2 text-2xl'>
+            <nav className='flex justify-center gap-16 py-4 max-w-3xl mx-auto border-b-2 text-2xl'>
                 <div className={currBox}>
                     <span className={currName}>USD:</span>
                     <span className={currRate}>₴{usdRate?.rates.UAH.toFixed(3)}</span>

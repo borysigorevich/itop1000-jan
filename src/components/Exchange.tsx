@@ -27,16 +27,16 @@ const currency: {
 const regex = /^[0-9]+$|^[0-9]+\.[0-9]+$/
 
 //styles
-const container = "bg-[url('/home-bg.png')] bg-no-repeat bg-cover h-[75vh] grid place-content-center mx-10 rounded-xl"
-const exchangeBox = "min-w-[740px] mx-auto flex justify-between items-center py-64 bg-[#2A2E93cc] rounded-lg px-10 h-[320px]"
+const container = "md:bg-[url('/home-bg.png')] bg-no-repeat bg-cover h-[75vh] grid place-content-center mx-10 rounded-xl"
+const exchangeBox = "min-w-[740px] mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:gap-0 items-center py-24 md:py-64 bg-[#2A2E93cc] rounded-lg px-10 md:h-[320px]"
 const sendBox = "grid gap-5"
 const title = "text-white text-2xl font-semibold"
 const ul = "text-white relative"
 const selectedLi = (isOpen: boolean) => `p-3 border font-semibold border-gray-200 rounded-t relative 
                     ${isOpen ? 'rounded-b-0' : 'rounded-b'} cursor-pointer`
-const liBox = (isOpen: boolean) => `${isOpen ? 'h-[157px]' : 'h-0'} transition-all duration-200 overflow-hidden
- absolute w-full bg-[#2A2E93]`
-const li = "hover:bg-[#4246a8] transition cursor-pointer p-3 border-r-[1px] border-l-[1px] last:border-b-[1px] last:rounded-bl last:rounded-br"
+const liBox = (isOpen: boolean) => `${isOpen ? 'h-[105px]' : 'h-0'} transition-all duration-200 overflow-hidden
+ absolute w-full bg-[#4246a8] md:bg-[#2A2E93]`
+const li = "md:hover:bg-[#4246a8] hover:bg-[#2A2E93] transition cursor-pointer p-3 border-r-[1px] border-l-[1px] last:border-b-[1px] last:rounded-bl last:rounded-br"
 const iconBox = "w-10 h-10 grid place-content-center rounded-full bg-[#383ec8] cursor-pointer"
 const icon = "text-3xl text-[#fff5]"
 const input = "rounded focus:outline-none text-[#453dad] h-[52px] px-3 w-[275px]"
@@ -135,12 +135,14 @@ export const Exchange = () => {
                         </li>
                         <div
                             className={liBox(openLeft)}>
-                            {Object.keys(currency).map(item => (
-                                    <li
-                                        onClick={changeSelectCurrency('send', item)}
-                                        key={item}
-                                        className={li}>{currency[item]}</li>
-                                )
+                            {Object.keys(currency).map(item => {
+                                    if (select.send !== item) {
+                                        return <li
+                                            onClick={changeSelectCurrency('send', item)}
+                                            key={item}
+                                            className={li}>{currency[item]}</li>
+                                    }
+                                }
                             )}
                         </div>
                     </ul>
@@ -169,12 +171,14 @@ export const Exchange = () => {
                         </li>
                         <div
                             className={liBox(openRight)}>
-                            {Object.keys(currency).map(item => (
-                                    <li
-                                        onClick={changeSelectCurrency('get', item)}
-                                        key={item}
-                                        className={li}>{currency[item]}</li>
-                                )
+                            {Object.keys(currency).map(item => {
+                                    if (select.get !== item) {
+                                        return <li
+                                            onClick={changeSelectCurrency('get', item)}
+                                            key={item}
+                                            className={li}>{currency[item]}</li>
+                                    }
+                                }
                             )}
                         </div>
                     </ul>
