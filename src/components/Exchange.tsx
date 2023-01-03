@@ -1,6 +1,7 @@
 import React, {ReactElement, useState, useEffect} from 'react';
 import type {MouseEvent, ChangeEvent} from 'react'
 import {CgArrowsExchange} from 'react-icons/cg'
+import {TiArrowSortedDown, TiArrowSortedUp} from 'react-icons/ti'
 import {useConvertCurrencyQuery} from "../store/currencyService";
 
 const symbol = "text-xl mr-1 text-blue-400"
@@ -31,7 +32,7 @@ const exchangeBox = "min-w-[740px] mx-auto flex justify-between items-center py-
 const sendBox = "grid gap-5"
 const title = "text-white text-2xl font-semibold"
 const ul = "text-white relative"
-const selectedLi = (isOpen: boolean) => `p-3 border font-semibold border-gray-200 rounded-t 
+const selectedLi = (isOpen: boolean) => `p-3 border font-semibold border-gray-200 rounded-t relative 
                     ${isOpen ? 'rounded-b-0' : 'rounded-b'} cursor-pointer`
 const liBox = (isOpen: boolean) => `${isOpen ? 'h-[157px]' : 'h-0'} transition-all duration-200 overflow-hidden
  absolute w-full bg-[#2A2E93]`
@@ -39,6 +40,7 @@ const li = "hover:bg-[#4246a8] transition cursor-pointer p-3 border-r-[1px] bord
 const iconBox = "w-10 h-10 grid place-content-center rounded-full bg-[#383ec8] cursor-pointer"
 const icon = "text-3xl text-[#fff5]"
 const input = "rounded focus:outline-none text-[#453dad] h-[52px] px-3 w-[275px]"
+const arrow = "absolute right-4 top-1/2 -translate-y-1/2"
 //***
 
 export const Exchange = () => {
@@ -124,7 +126,13 @@ export const Exchange = () => {
                 <div className={sendBox}>
                     <h2 className={title}>Send:</h2>
                     <ul className={ul} onClick={handleLeftContainerOpen}>
-                        <li className={selectedLi(openLeft)}>{currency[select.send]}</li>
+                        <li className={selectedLi(openLeft)}>
+                            {currency[select.send]}
+                            {openLeft
+                                ? <TiArrowSortedUp className={arrow}/>
+                                : <TiArrowSortedDown className={arrow}/>
+                            }
+                        </li>
                         <div
                             className={liBox(openLeft)}>
                             {Object.keys(currency).map(item => (
@@ -152,7 +160,13 @@ export const Exchange = () => {
                         className={ul}
                         onClick={handleRightContainerOpen}
                     >
-                        <li className={selectedLi(openRight)}>{currency[select.get]}</li>
+                        <li className={selectedLi(openRight)}>
+                            {currency[select.get]}
+                            {openRight
+                                ? <TiArrowSortedUp className={arrow}/>
+                                : <TiArrowSortedDown className={arrow}/>
+                            }
+                        </li>
                         <div
                             className={liBox(openRight)}>
                             {Object.keys(currency).map(item => (
