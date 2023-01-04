@@ -9,10 +9,8 @@ export const Header = () => {
     const {data: usdRate} = useGetUSDRateQuery('')
     const {data: eurRate} = useGetUERRateQuery('')
 
-    console.log(usdRate, eurRate)
-
     return (
-        <header className='mb-10'>
+        <header className='mb-10 bg-white relative'>
             <nav className='flex justify-center gap-16 py-4 max-w-3xl mx-auto border-b-2 text-2xl'>
                 <div className={currBox}>
                     <span className={currName}>USD:</span>
