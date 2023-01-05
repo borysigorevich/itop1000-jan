@@ -27,8 +27,8 @@ const currency: {
 const regex = /^[0-9]+$|^[0-9]+\.[0-9]+$/
 
 //styles
-const container = "md:bg-[url('/home-bg.png')] bg-no-repeat bg-cover h-[75vh] grid place-content-center mx-10 rounded-xl"
-const exchangeBox = "min-w-[740px] mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:gap-0 items-center py-24 md:py-64 bg-[#2A2E93cc] rounded-lg px-10 md:h-[320px]"
+const container = "pt-10 md:bg-[url('/home-bg.png')] bg-no-repeat bg-cover h-[75vh] grid place-content-center mx-10 rounded-xl"
+const exchangeBox = "w-full md:min-w-[740px] mx-auto flex flex-col md:flex-row md:justify-between gap-10 md:gap-0 items-center py-24 md:py-64 bg-[#2A2E93cc] rounded-lg px-10 md:h-[320px]"
 const sendBox = "grid gap-5"
 const title = "text-white text-2xl font-semibold"
 const ul = "text-white relative"
